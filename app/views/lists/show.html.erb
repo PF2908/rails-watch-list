@@ -1,10 +1,23 @@
-<h1> <%= @list.name %></h1>
-  <ul><p>film</p>
-    <% @list.bookmarks.each do |bookmark| %>
-      <li><%= bookmark.comment %>
-      <%= link_to 'Destroy', bookmark_path(bookmark), method: :delete, data: { confirm: 'Are you sure?' } %>
-      </li>
-    <% end %>
-  </ul>
 
-<p><%= link_to "New comment", new_list_bookmark_path(@list) %></p>
+<div class="container mt-4" >
+  <div class="card-list">
+<h1> <%= @list.name %></h1>
+ <% @list.bookmarks.each do |l| %>
+  <div class="class">
+    <div class="card-img-top" style="background-image : linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= l.movie.poster_url %>)"></div>
+  </div>
+    <h3><%= l.movie.title %></h3>
+    <p><%= l.movie.overview %></p>
+    <p><%= l.movie.rating %>/10</p>
+    <p><%= l.comment %></p>
+
+<p><%= link_to "Delete",
+        bookmark_path(l),
+        method: :delete,
+        data: { confirm: "Are you sure?" } %></p>
+  <% end %>
+
+  <p><%= link_to "New Bookmark", new_list_bookmark_path(@list)%></p>
+  <p><%= link_to "Back to list", lists_path %></p>
+</div>
+</div>

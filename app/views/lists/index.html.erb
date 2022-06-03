@@ -1,9 +1,13 @@
-<h1>Playlist Films</h1>
+<div class="container mt-4 ">
 
-  <ul>
-    <% @lists.each do |list| %>
-      <li><%= link_to list.name, list_path(list) %></li>
+  <div class="cards">
+      <% @lists.each do |list| %>
+      <%= link_to list_path(list), class: 'text-decoration-none' do %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1440404653325-ab127d49abc1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8ZmlsbXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60)">
+      <p><%= list.name %></p>
+      </div>
     <% end %>
-  </ul>
+    <% end %>
+  </div>
 
-<p><%= link_to "Create new list", new_list_path %></p>
+</div>

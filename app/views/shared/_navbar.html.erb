@@ -1,0 +1,38 @@
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1534684686641-05569203ecca?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2664&q=80);">
+    <div class="navbar-lewagon">
+      <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+        <div class="container-fluid">
+          <%= link_to lists_path, class: "navbar-brand" do %>
+          <img src="https://th.bing.com/th/id/R.4ea0d0f67973e1232cc9155c96842ae0?rik=WC3QdK5Yf78lCQ&riu=http%3a%2f%2fqc-production.com%2fwp-content%2fuploads%2f2015%2f02%2fPicto-02.png&ehk=kZJJotzx7TApVIT5VFx%2bnrbfDKQsa9g2zW%2bwtJhJgog%3d&risl=&pid=ImgRaw&r=0" />
+          <% end %>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto">
+              <%# check if @garden exist and if it has an id %>
+              <% if @list&.persisted? %>
+                <li class="nav-item">
+                  <%= link_to 'edit my list', lists_path(@list), class: 'btn btn-primary rounded-10 mx-2' %>
+                </li>
+              <% end %>
+              <% unless params[:controller] == "lists" && params[:action] == "index"%>
+                <li class="nav-item">
+                  <%= link_to 'return', lists_path, class: 'btn btn-success rounded-10 my-2' %>
+                </li>
+              <% else %>
+                <li class="nav-item">
+                  <%= link_to 'add my list!', new_list_path, class: 'btn btn-success rounded-10 my-2' %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="title">
+      <h1>Mes playlists</h1>
+    </div>
+  </div>
